@@ -1,0 +1,15 @@
+library('jpeg')
+#library('imager')
+
+imgs = list.files(pattern='*.jpg')
+imgsTrain <- sample(imgs,100)
+
+
+data <- matrix(ncol=4,nrow=0)
+colnames(data) <- c('w','h','c')
+for(iPath in imgsTrain) {
+    img <- readJPEG(iPath,native=F)
+    rbind(data,dim(img)) -> data
+    rm(img)
+}
+
