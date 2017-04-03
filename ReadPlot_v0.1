@@ -1,0 +1,20 @@
+plot_jpeg = function(path){
+    img <- readJPEG(path,native=T)
+    res <- dim(img)[1:2]
+    plot(1,1,xlim=c(1,res[2]),ylim=c(1,res[1]),asp=1,type='n',xaxs='i',yaxs='i',xaxt='n',yaxt='n',xlab='',ylab='',bty='n')
+    rasterImage(img,1,1,res[2],res[1])
+}
+
+
+
+
+par(mfrow=c(1,2))
+for(i in c(1:2)){
+    
+    plot_jpeg(imgs[1+i])
+    box(lty = '1373', col = 'red')
+}
+
+par(mfrow=c(1,2))
+plot(c(1:10))
+plot(c(1:10))
